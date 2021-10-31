@@ -31,7 +31,7 @@ The task API exposes two endpoints:
     - The user should send a valid task UUID in the request body. The task API will set the task state to `completed`.
     ``` json
     {
-        taskUUID: "b3c56027-3bab-4d04-a969-564389b9c564"
+        "taskUUID": "b3c56027-3bab-4d04-a969-564389b9c564"
     }
     ```
 
