@@ -131,7 +131,7 @@ describe("Integration", () => {
       const mongoUpdateOneMock = sinon.stub(Task, "updateOne");
       mongoUpdateOneMock
         .withArgs(tasksResponses.UUID, tasksResponses.setOperation)
-        .returns(tasksResponses.updateOperationError);
+        .returns(tasksResponses.updateOperationConflict);
 
       chai
         .request(server)
@@ -144,6 +144,26 @@ describe("Integration", () => {
           chai
             .expect(res.body)
             .to.eql({ message: "Task has been completed already" });
+        });
+    });
+
+    it("Task not found, throws status error 404", () => {
+      const mongoUpdateOneMock = sinon.stub(Task, "updateOne");
+      mongoUpdateOneMock
+        .withArgs(tasksResponses.UUID, tasksResponses.setOperation)
+        .returns(tasksResponses.updateOperationNotFound);
+
+      chai
+        .request(server)
+        .put("/tasks")
+        .send({
+          taskUUID: tasksResponses.UUID._id,
+        })
+        .end((err, res) => {
+          chai.expect(res.status).to.eql(404);
+          chai
+            .expect(res.body)
+            .to.eql({ message: "Task not found" });
         });
     });
   });
