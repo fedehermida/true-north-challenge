@@ -1,2 +1,2 @@
-# true-north-challenge
-Lorem Fake Tasks - Challenge
+# trueNorthChallenge
+ Lorem Fake Task - Challenge
