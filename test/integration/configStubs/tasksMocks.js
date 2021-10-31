@@ -149,12 +149,20 @@ const updateOperationSuccessful = {
   matchedCount: 1,
 };
 
-const updateOperationError = {
+const updateOperationConflict = {
   acknowledged: true,
   modifiedCount: 0,
   upsertedId: null,
   upsertedCount: 0,
   matchedCount: 1,
+};
+
+const updateOperationNotFound = {
+  acknowledged: true,
+  modifiedCount: 0,
+  upsertedId: null,
+  upsertedCount: 0,
+  matchedCount: 0,
 };
 
 module.exports = {
@@ -179,5 +187,6 @@ module.exports = {
   UUID: UUID,
   updateOperationSuccessful: updateOperationSuccessful,
   setOperation: setOperation,
-  updateOperationError: updateOperationError
+  updateOperationConflict: updateOperationConflict,
+  updateOperationNotFound: updateOperationNotFound,
 };

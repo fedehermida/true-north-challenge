@@ -58,8 +58,11 @@ class TaskRepository {
         { _id: taskUUID },
         { $set: { completed: true } }
       );
-      if(!taskCompletionStatus.modifiedCount){
+      if(!taskCompletionStatus.modifiedCount && taskCompletionStatus.matchedCount){
         throw createHttpError.Conflict('Task has been completed already')
+      }
+      if(!taskCompletionStatus.modifiedCount && !taskCompletionStatus.matchedCount){
+        throw createHttpError.NotFound('Task not found')
       }
       return taskCompletionStatus;
     } catch (error) {
