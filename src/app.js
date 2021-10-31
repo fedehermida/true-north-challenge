@@ -13,7 +13,7 @@ app.use((err, req, res, next) => {
   res.status(err.statusCode || 500).send(err);
 });
 
-const server = app.listen(4000)
+const server = app.listen(5050)
 
 server.on('error', events.onServerError);
 process.on('SIGINT', events.onProcessKill(server));

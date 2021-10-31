@@ -1,0 +1,31 @@
+version: "3"
+services:
+  web:
+    container_name: node-task-api
+    environment: 
+      - MONGOHOST=mongodb
+      - MONGOPORT=27017
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    ports:
+      - "5050:5050"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - task-api-network
+  db:
+    container_name: mongodb
+    image: mongo:latest
+    expose:
+      - "27017"
+    volumes:
+      - ~/mongo:/data/db
+    networks:
+      - task-api-network
+networks:
+  task-api-network:
+    driver: bridge
