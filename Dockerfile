@@ -1,6 +1,6 @@
 FROM node:alpine
 LABEL Version=1
-LABEL Name="value"
+LABEL Name="node-task-api"
 WORKDIR /app
 COPY ./package.json .
 RUN npm install
