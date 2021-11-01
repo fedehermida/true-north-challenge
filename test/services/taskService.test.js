@@ -3,7 +3,7 @@ const chaiAsPromised = require("chai-as-promised");
 chai.use(chaiAsPromised);
 const sinon = require("sinon");
 const TaskRepository = require("../../src/repository/taskRepository");
-const LoremFakerService = require("../../src/services/LoremFakerService");
+const LoremFakerService = require("../../src/services/loremFakerService");
 
 const TaskService = require("./../../src/services/taskService");
 
