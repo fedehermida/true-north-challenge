@@ -7,6 +7,7 @@
 - [How this works](#how-this-works)
     - [Architecture](#architecture)
 - [Run this sample](#run-this-sample)
+- [Run tests](#run-tests)
 
 ## Summary
 
@@ -47,4 +48,9 @@ The task API exposes two endpoints:
 - Run `docker-compose build`
 - Run `docker-compose up`
 - Open Postman and test the API at localhost:5050
+
+## Run tests!
+- Open a new terminal
+- Run `docker-compose up`. Omit this step if the environment is running already.
+- Run `docker exec -it true-north-challenge_web npm run test`
 
