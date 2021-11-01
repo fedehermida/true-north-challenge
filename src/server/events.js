@@ -2,10 +2,6 @@ const onServerError = () => {
   console.log("Internal Server Error");
 };
 
-const onListen = (port) => {
-  console.log(`acquisition-ms - Running on Port ${port}`);
-};
-
 const onProcessKill = (server) => () => {
   console.log("Service termination signal");
   return new Promise((resolve) => {
@@ -21,7 +17,6 @@ const onException = (error) => {
 };
 
 module.exports = {
-  onListen,
   onProcessKill,
   onServerError,
   onException,
