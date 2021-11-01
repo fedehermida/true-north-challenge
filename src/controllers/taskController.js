@@ -6,10 +6,9 @@ const httpError = require("http-errors");
 
 const getTasks = async (req, res, next) => {
   try {
-    const numberOfTasks =
-      req.query.numberOfTasks === undefined
-        ? 3
-        : parseInt(req.query.numberOfTasks);
+    const numberOfTasks = !req.query.numberOfTasks
+      ? 3
+      : parseInt(req.query.numberOfTasks);
     assert(
       _.isInteger(
         numberOfTasks,

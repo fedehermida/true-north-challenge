@@ -1,4 +1,4 @@
-const LoremFakerService = require("./LoremFakerService");
+const LoremFakerService = require("./loremFakerService");
 const TaskRepository = require("./../repository/taskRepository");
 const createHttpError = require("http-errors");
 
@@ -22,10 +22,7 @@ class TaskService {
   }
   static async updateTaskCompletion(taskUUID) {
     try {
-      const taskCompletionStatus = await TaskRepository.setTaskCompletion(
-        taskUUID
-      );
-      return taskCompletionStatus;
+      return await TaskRepository.setTaskCompletion(taskUUID);
     } catch (error) {
       throw error;
     }
